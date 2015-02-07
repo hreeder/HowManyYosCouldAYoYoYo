@@ -1,10 +1,11 @@
 from flask import Flask
 from flask.ext.heroku import Heroku
 
+from HowMany.yo import Yo
+
 app = Flask(__name__)
 heroku = Heroku(app)
+yo = Yo()
 
-total_yos = 0
-yos = {}
 
 from HowMany import views

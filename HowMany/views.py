@@ -1,18 +1,12 @@
-from HowMany import app, total_yos, yos
+from HowMany import app, yo
 from flask import jsonify, render_template, request
 
 @app.route("/")
 def index():
-    return render_template("home.html", number=total_yos)
+    return render_template("home.html", number=yo.total_yos)
 
 @app.route("/callback")
 def yo_callback():
-    global total_yos
-    global yos
-    total_yos += 1
     user = request.args['username']
-    if user in yos.keys():
-        yos[user] += 1
-    else:
-        yos[user] = 1
-    return jsonify(status="OK")
+    yo.add_yo(user)
+    return jsonify(status="Success")
