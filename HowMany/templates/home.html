@@ -7,15 +7,63 @@
   <body>
     <div class="container">
       <div class="row">
-          <h2>{{ number }} Yos received</h2>
+          <span style="text-align: center; font-size: 150px;">{{ number }} Yos received</span>
       </div>
-      <div class="row"><br/></div>
+      <br/>
       <div class="row">
-        Send me a Yo!
+        <h3>Send me a Yo!</h3>
       </div>
       <div class="row">
-        JUSTSENDAFUCKINGYO
+        <h1><b>JUSTSENDAFUCKINGYO</b></h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h3>Latest Yos</h3>
+          <table id="latest" class="table">
+            <thead>
+            <tr>
+              <th>Sender</th>
+              <th>Sent</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for yo in latest %}
+              <tr>
+                <td>{{ yo.sender }}</td>
+                <td>{{ yo.sent_at|fuzzystamp|safe }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <h3>Most Yos</h3>
+          <table id="most" class="table">
+            <thead>
+            <tr>
+              <th>User</th>
+              <th># Yos</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for user in most %}
+                <tr>
+                  <td>{{ user[0] }}</td>
+                  <td>{{ user[1] }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://timeago.yarp.com/jquery.timeago.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("time.timeago").timeago();
+      });
+    </script>
   </body>
 </html>

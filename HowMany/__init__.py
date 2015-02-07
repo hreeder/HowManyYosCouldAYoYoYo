@@ -11,4 +11,4 @@ db=SQLAlchemy(app)
 heroku = Heroku(app)
 sentry = Sentry(app)
 
-from HowMany import views, yo
+from HowMany import views, filters, yo
