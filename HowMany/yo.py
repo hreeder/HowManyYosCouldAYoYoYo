@@ -9,4 +9,4 @@ def get_current_time():
 class Yo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sender = db.Column(db.String)
-    sent_at = db.Column(db.DateTime, default=get_current_time())
+    sent_at = db.Column(db.DateTime, default=get_current_time)
