@@ -6,3 +6,5 @@ heroku = Heroku(app)
 
 total_yos = 0
 yos = {}
+
+from HowMany import views

@@ -3,7 +3,7 @@ from flask import jsonify, render_template, request
 
 @app.route("/")
 def index():
-    return render_template("home.html")
+    return render_template("home.html", number=total_yos)
 
 @app.route("/callback")
 def yo_callback():
