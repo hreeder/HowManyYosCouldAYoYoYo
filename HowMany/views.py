@@ -8,7 +8,7 @@ def index():
 @app.route("/callback")
 def yo_callback():
     total_yos += 1
-    user = request.args.get('username')
+    user = request.args['username']
     if user in yos.keys():
         yos[user] += 1
     else:
