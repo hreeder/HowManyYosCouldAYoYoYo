@@ -11,4 +11,6 @@ db=SQLAlchemy(app)
 heroku = Heroku(app)
 sentry = Sentry(app)
 
+key = os.environ['APP_KEY']
+
 from HowMany import views, filters, yo
