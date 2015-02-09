@@ -60,9 +60,9 @@
 
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="http://timeago.yarp.com/jquery.timeago.js"></script>
-    <script src="{{ url_for('static', filename='js/reconnecting-websocket.js') }}"></script>
-    <script>
-      var receiver = new ReconnectingWebSocket("ws://" + location.host + "/ws");
+    <script lang="text/javascript">
+
+      var receiver = new WebSocket("ws://" + location.host + "/ws");
 
       receiver.onmessage = function(message) {
           console.log(message);
