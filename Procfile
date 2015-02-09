@@ -1,1 +1,1 @@
-web: gunicorn HowMany:app --log-file=-
+web: gunicorn -k flask_sockets.worker HowMany:app --log-file=-
