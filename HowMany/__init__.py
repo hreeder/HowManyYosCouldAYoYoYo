@@ -17,6 +17,9 @@ sentry = Sentry(app)
 redis = redis.from_url(app.config['REDIS_URL'])
 sockets = Sockets(app)
 
+app.config['HEROKU_API_KEY'] = os.environ['HEROKU_API_KEY']
+app.config['APP_NAME'] = os.environ['HEROKU_APP_NAME']
+
 from HowMany.ws import Backend
 backend = Backend()
 backend.start()
