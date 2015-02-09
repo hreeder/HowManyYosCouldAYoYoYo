@@ -1,4 +1,6 @@
-from HowMany import app, db, key
+import gevent
+
+from HowMany import app, backend, db, key, redis, sockets
 from HowMany.yo import Yo
 from flask import jsonify, render_template, request, make_response
 from sqlalchemy import desc
@@ -20,6 +22,15 @@ def yo_callback(token):
         yo = Yo(sender=user)
         db.session.add(yo)
         db.session.commit()
+
+        redis.publish(app.config['REDIS_CHAN'], user)
         return jsonify(status="Success")
     else:
         return make_response(jsonify(status="Token Invalid"), 403)
+
+@sockets.route('/ws')
+def ws_receive(ws):
+    backend.register(ws)
+
+    while ws.socket is not None:
+        gevent.sleep()

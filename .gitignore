@@ -1,5 +1,5 @@
 .idea/
-.pyc
+*.py[cod]
 .env
 
 __pycache__/
