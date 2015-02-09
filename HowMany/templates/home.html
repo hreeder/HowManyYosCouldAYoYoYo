@@ -65,7 +65,7 @@
       $(document).ready(function(){
         $("time.timeago").timeago();
 
-        var receiver = new ReconnectingWebSocket("ws://" + location.host + "/receive");
+        var receiver = new ReconnectingWebSocket("ws://" + location.host + "/ws");
 
         receiver.onmessage = function(message) {
             console.log(message);
