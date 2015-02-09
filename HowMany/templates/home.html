@@ -7,7 +7,7 @@
   <body>
     <div class="container">
       <div class="row">
-          <span style="text-align: center; font-size: 150px;">{{ number }} Yos received</span>
+          <span style="text-align: center; font-size: 150px;"><span id="numyos">{{ number }}</span> Yos received</span>
       </div>
       <br/>
       <div class="row">
@@ -66,6 +66,8 @@
 
       receiver.onmessage = function(message) {
           console.log(message);
+
+          $('#numyos').text(parseInt($('#numyos').text()) + 1);
       }
       $(document).ready(function(){
         $("time.timeago").timeago();

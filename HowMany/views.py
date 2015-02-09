@@ -32,5 +32,5 @@ def yo_callback(token):
 def ws_receive(ws):
     backend.register(ws)
 
-    while ws.socket is not None:
+    while not ws.closed:
         gevent.sleep()

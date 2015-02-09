@@ -19,6 +19,7 @@ sockets = Sockets(app)
 
 from HowMany.ws import Backend
 backend = Backend()
+backend.start()
 
 key = os.environ['APP_KEY']
 
