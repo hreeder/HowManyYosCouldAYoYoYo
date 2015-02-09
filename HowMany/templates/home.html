@@ -62,14 +62,13 @@
     <script src="http://timeago.yarp.com/jquery.timeago.js"></script>
     <script src="{{ url_for('static', filename='js/reconnecting-websocket.js') }}"></script>
     <script>
+      var receiver = new ReconnectingWebSocket("ws://" + location.host + "/ws");
+
+      receiver.onmessage = function(message) {
+          console.log(message);
+      }
       $(document).ready(function(){
         $("time.timeago").timeago();
-
-        var receiver = new ReconnectingWebSocket("ws://" + location.host + "/ws");
-
-        receiver.onmessage = function(message) {
-            console.log(message);
-        }
       });
     </script>
   </body>
